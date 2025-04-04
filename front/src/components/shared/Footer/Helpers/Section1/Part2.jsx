@@ -1,4 +1,4 @@
-
+import { NavLink } from 'react-router-dom'
 
 const Part2 = () => {
   return (
@@ -17,7 +17,7 @@ const Part2 = () => {
                     </h4>
                 </div>
             </div>
-            <button className='connect-btn'>Let’s Connect <img src="/assets/img/arrow.svg" alt="" /></button>
+            <NavLink to='/contact' className='connect-btn text-deco-none'>Let’s Connect <img src="/assets/img/arrow.svg" alt="" /></NavLink>
         </div>
     </>
   )

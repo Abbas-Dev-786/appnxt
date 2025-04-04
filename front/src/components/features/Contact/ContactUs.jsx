@@ -3,8 +3,10 @@ import Header from "../../shared/Header/Header"
 import Banner from "../../shared/Banner/Banner"
 import CardSection from "./Helpers/CardSection"
 import FormSection from "./Helpers/FormSection/FormSection"
+import { useScrollToTop } from "../../../util/scrollHook"
 
 const ContactUs = () => {
+  useScrollToTop()
   return (
     <>
         <Header />

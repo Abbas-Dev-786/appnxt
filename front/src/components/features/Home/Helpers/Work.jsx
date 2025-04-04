@@ -75,7 +75,7 @@ const Work = () => {
                     <div className="work">
                         <h4 className="font-lg text-start" ref={headingRef}>
                         <span>What We Do</span> <br />
-                        Innovation, Collaboration, <span>And</span> Transformation Ideas
+                        Innovation, Collaboration, <span>And</span> Transformation of Ideas
                         </h4>
                         <div className='body'>
                             <div className="content" ref={contentRef}>

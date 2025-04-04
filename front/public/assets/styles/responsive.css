@@ -2,36 +2,36 @@
     #root {
         overflow-x: hidden;
     }
-    .main-header .menu-btn{
+    .main-header .menu-btn {
         padding: 12px;
         width: 40px;
     }
-    .main-header .menu-btn .line-1{
+    .main-header .menu-btn .line-1 {
         height: 1px;
         width: 15px;
     }
-    .main-header .menu-btn .line-2{
+    .main-header .menu-btn .line-2 {
         height: 1px;
         width: 10px;
     }
-    .main-header .logo{
-        width: 50%;
+    .main-header .logo {
+        width: 70%;
     }
-    .main-banner .gif{
+    .main-banner .gif {
         width: 90%;
         height: 400px;
     }
-    .main-banner .blur{
+    .main-banner .blur {
         bottom: 0;
         width: 90%;
     }
-    .font-lg{
+    .font-lg {
         font-size: 40px;
     }
-    .font-lg span{
+    .font-lg span {
         font-size: 50px;
     }
-    .card1{
+    .card1 {
         width: 22% !important;
         right: 10% !important;
         top: -6% !important;
@@ -46,20 +46,20 @@
         bottom: 20% !important;
         right: 5% !important;
     }
-    .font-sm{
+    .font-sm {
         font-size: 14px;
     }
-    .content-banner{
-        grid-template-columns: 1fr ;
+    .content-banner {
+        grid-template-columns: 1fr;
         gap: 10px;
     }
     .content-banner .cs-btn {
         justify-self: start;
     }
-    .pt-30{
+    .pt-30 {
         padding-top: 30px;
     }
-    .connect-btn{
+    .connect-btn {
         gap: 10px;
         align-items: 10px 20px;
         font-size: 15px;
@@ -67,42 +67,43 @@
     .pt-cs {
         padding-top: 70px;
     }
-    .featured-header{
+    .featured-header {
         width: 100%;
-        align-items: start;
+        align-items: center;
     }
-    .featured-cards-layout{
+    .featured-cards-layout {
         padding-top: 60px;
         grid-template-columns: 1fr;
     }
-    .font-md{
+    .font-md {
         font-size: 22px;
     }
-    .fs-22{
+    .fs-22 {
         font-size: 18px !important;
     }
-    .lg-video{
+    .lg-video {
         height: 400px;
     }
-    .featured-cards-layout .cards .footer{
+    .featured-cards-layout .cards .footer {
         padding: 10px;
     }
-    .featured-cards-layout .cards img{
+    .featured-cards-layout .cards img {
         height: 350px;
     }
-    .work .body .image video{
+    .work .body .image video {
         height: 500px;
     }
     .work .body {
         flex-direction: column-reverse;
-        .content, .image {
+        .content,
+        .image {
             width: 100%;
         }
     }
-    .work .body .content .data-stack h4 span{
+    .work .body .content .data-stack h4 span {
         font-size: 25px;
     }
-    .work .body .content .data-stack h4{
+    .work .body .content .data-stack h4 {
         font-size: 30px;
     }
     .tech-stack {
@@ -115,42 +116,34 @@
     }
     .cs-section {
         padding: 50px 0;
-    
         & .section-1 {
             .header {
                 width: 100%;
             }
-    
             .body {
                 padding: 45px 0;
                 flex-direction: column;
-    
-                .part1, .part2 {
+                .part1,
+                .part2 {
                     width: 100% !important;
-    
                     .data-stack {
                         gap: 2px;
-    
                         &.view {
                             grid-template-columns: 1fr;
                             gap: 5px;
-    
                             img {
                                 height: 100px;
                                 width: 100px;
                             }
                         }
                     }
-    
                     h2 {
                         font-size: 20px;
                     }
-    
                     h4 {
                         font-size: 25px;
                     }
                 }
-    
                 .part2 {
                     display: grid;
                     gap: 20px;
@@ -162,20 +155,17 @@
                 }
             }
         }
-
         & .section-2 {
             .counter {
                 grid-template-columns: 1fr 1fr;
-
                 .box {
                     padding: 30px 0;
-                        h4 {
-                            font-size: 40px;
-                        }
-
-                        p {
-                            font-size: 16px;
-                        }
+                    h4 {
+                        font-size: 40px;
+                    }
+                    p {
+                        font-size: 16px;
+                    }
                 }
             }
             & .body {
@@ -188,14 +178,12 @@
                 .part2 {
                     width: 100%;
                     min-height: 400px;
-
                     .right {
                         top: 52%;
                     }
                     .left {
                         top: 52%;
                     }
-
                     .center img {
                         width: 230px;
                         height: 330px;
@@ -213,11 +201,9 @@
                 }
             }
         }
-
         & .section-3 {
             .body {
                 gap: 35px;
-
                 .slider-img:nth-child(odd) img {
                     height: 250px;
                     width: 180px;
@@ -227,49 +213,40 @@
                     width: 130px;
                 }
             }
-
         }
     }
-
     .mb-20 {
         margin-bottom: 5px !important;
     }
-
     .footer-main {
-
         & .section-1 {
             flex-direction: column;
             gap: 20px;
-
             .font-sm {
                 font-size: 12px !important;
             }
-
-            .part3, .part1, .part2 {
+            .part3,
+            .part1,
+            .part2 {
                 gap: 25px;
             }
-
             .part3 {
                 align-items: end;
-
                 .list {
                     align-items: end;
                 }
             }
         }
-
         & .section-2 {
             h1 {
                 font-size: 42.34px;
             }
         }
     }
-
-    .fs-42{
+    .fs-42 {
         font-size: 32px !important;
     }
-
-    .fs-82{
+    .fs-82 {
         font-size: 50px !important;
     }
     .fs-68 {
@@ -311,16 +288,13 @@
                     font-size: 24px;
                 }
             }
-
             .image img {
                 width: 350px;
                 height: 300px;
             }
         }
-
         .part2 {
             gap: 25px;
-
             .counter {
                 grid-template-columns: 1fr 1fr;
                 gap: 20px;
@@ -337,10 +311,9 @@
                     height: 50px;
                     padding: 18px;
                 }
-            }    
+            }
         }
     }
-
     .stack-card {
         .card-cs .card-layout.mob {
             background: transparent;
@@ -348,18 +321,16 @@
             display: grid;
             grid-template-columns: 1fr;
             align-items: stretch;
-          /* padding: 20px; */
+            /* padding: 20px; */
             gap: 8px;
             border-radius: 10px;
             background: var(--3BLACK, linear-gradient(180deg, #1A1A1A 0%, #000 48.5%, #1A1A1A 100%));
-            
-            .image img{
-                    width: 100%;
-                    height: 300px;
-                    border-radius: 10px;
-                    object-fit: cover;
-                }
-            
+            .image img {
+                width: 100%;
+                height: 300px;
+                border-radius: 10px;
+                object-fit: cover;
+            }
             .content {
                 display: flex;
                 flex-direction: column;
@@ -369,13 +340,10 @@
                 gap: 25px;
             }
         }
-
     }
-
     .cs-gap-20 {
         gap: 20px !important;
     }
-
     .slider-service {
         & .header {
             flex-direction: column;
@@ -409,7 +377,6 @@
                 .card {
                     gap: 10px;
                     padding: 15px;
-
                     & .header {
                         height: 80px;
                         & h4 {
@@ -432,19 +399,17 @@
         }
         .form-section {
             flex-direction: column;
-
-            .form-card, .header {
+            .form-card,
+            .header {
                 width: 100%;
             }
-
             .form-card {
                 padding: 20px;
                 gap: 20px;
-
                 input {
                     height: 40px;
                 }
-                button { 
+                button {
                     margin-top: 15px;
                 }
             }
@@ -453,7 +418,8 @@
     .services-grid {
         flex-direction: column;
     }
-    .cyber-card-layout .card-layout.odd, .cyber-card-layout .card-layout.even {
+    .cyber-card-layout .card-layout.odd,
+    .cyber-card-layout .card-layout.even {
         grid-template-columns: 1fr;
         .content {
             order: 2;
@@ -486,4 +452,20 @@
             }
         }
     }
+    .tech-stack-mob {
+        & .tech-body {
+            & .area {
+                img {
+                    width: 400px;
+                }
+            }
+            .divide {
+                /* border-bottom: 1px solid #ccc; */
+                width: 100vw;
+                height: 2px;
+                background-color: #ccc;
+            }
+        }
+    }
+    /* */
 }

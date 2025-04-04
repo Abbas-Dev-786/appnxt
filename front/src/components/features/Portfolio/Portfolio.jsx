@@ -1,3 +1,4 @@
+import { useScrollToTop } from "../../../util/scrollHook"
 import Banner from "../../shared/Banner/Banner"
 import Footer from "../../shared/Footer/Footer"
 import Header from "../../shared/Header/Header"
@@ -13,11 +14,13 @@ const Portfolio = () => {
     description: 'Explore our collection of cutting-edge products designed to empower your business and elevate your creative potential.Each product is meticulously crafted to provide exceptional performance, usability, and results.'
   }
 
+  useScrollToTop()
+
   return (
     <>
         <Header />
 
-        <Banner content={'APPNXT PVT. LTD. delivers custom software solutions, using advanced technologies to create robust, tailored products for your business.'} heading={'Portfolio'} bgURL={'/assets/img/portfolio-banner.svg'} />
+        <Banner content={'APPNXT PVT. LTD. delivers custom software solutions, using advanced technologies to create robust, tailored products for your business.'} heading={'Projects'} bgURL={'/assets/img/portfolio-banner.svg'} />
 
         <Projects type={'center'} content={projectHeading} />
 

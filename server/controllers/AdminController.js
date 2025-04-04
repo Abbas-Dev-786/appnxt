@@ -5,12 +5,12 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 route.get('/', async(req, res) => {
-
+    return res.status(200).json({ success: true });
 })
 
-route.get('/:id', async(req, res) => {
+// route.get('/:id', async(req, res) => {
 
-})
+// })
 
 route.post('/', async (req, res) => {
     const { email, password } = req.body;

@@ -1,7 +1,7 @@
 const Card = ({ type, heading, description, button, image }) => {
     const isMobOrOdd = type === 'mob' || type === 'odd';
     const isEven = type === 'even';
-
+    // console.log(type, heading, description, button, image)
     return (
         <div className={`card-layout ${type}`}>
             {isMobOrOdd && (

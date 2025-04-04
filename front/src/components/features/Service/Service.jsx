@@ -1,3 +1,4 @@
+import { useScrollToTop } from "../../../util/scrollHook"
 import AnimateImage from "../../shared/AnimateImage/AnimateImage"
 import Banner from "../../shared/Banner/Banner"
 import Content from "../../shared/Content/Content"
@@ -20,6 +21,8 @@ const Service = () => {
         content: `We boast the power and maturity of PHP to address your full spectrum requirements in astounding ways.`,
         image: `/assets/img/service-banner.svg`
     }
+
+    useScrollToTop()
 
 
   return (

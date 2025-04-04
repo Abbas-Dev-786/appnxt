@@ -1,4 +1,5 @@
 
+import { useScrollToTop } from "../../../util/scrollHook"
 import Banner from "../../shared/Banner/Banner"
 import CustomSection from "../../shared/CustomSection/CustomSection"
 import Footer from "../../shared/Footer/Footer"
@@ -56,6 +57,7 @@ const CyberSecurity = () => {
         },
     ]
 
+    useScrollToTop()
   return (
     <>
         <Header />

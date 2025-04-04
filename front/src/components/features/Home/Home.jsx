@@ -9,6 +9,7 @@ import Footer from '../../shared/Footer/Footer';
 import Content from '../../shared/Content/Content';
 import AnimateImage from '../../shared/AnimateImage/AnimateImage';
 import OurServices from '../Service/OurServices';
+import { useScrollToTop } from '../../../util/scrollHook'
 
 const Home = () => {
 
@@ -20,6 +21,8 @@ const Home = () => {
     description: 'Explore our collection of cutting-edge products designed to empower your business and elevate your creative potential.Each product is meticulously crafted to provide exceptional performance, usability, and results.'
   }
 
+  useScrollToTop()
+
   return (
     <>
     <Header />
@@ -27,7 +30,7 @@ const Home = () => {
 
     <Content heading={'ABOUT US'} content={'APPNXT Pvt. Ltd. offers innovative IT solutions in web and app development, digital marketing, and custom software services, helping businesses thrive.'} />
 
-    <AnimateImage image={'/assets/img/lg-video.svg'} />
+    <AnimateImage image={'/assets/img/lg-video.webp'} />
 
     {/* <Projects type={'center'} content={projectHeading} /> */}
     <OurServices />

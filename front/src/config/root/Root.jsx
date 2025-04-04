@@ -26,11 +26,11 @@ const rootRoutes = [
         element : <ContactUs />
     },
     {
-        path : 'portfolio',
+        path : 'projects',
         element : <Portfolio />
     },
     {
-        path : 'portfolio/:project',
+        path : 'projects/:project',
         element : <Inner />
     },
     {

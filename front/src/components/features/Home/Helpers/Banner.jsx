@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import splitTextIntoSpans from '../../../../util/split';
+import { NavLink } from 'react-router-dom'
 
 const Banner = () => {
   const card1Ref = useRef(null);
@@ -180,7 +181,7 @@ const Banner = () => {
                   <p ref={paragraphRef} className='font-sm'>At Appnxt, we merge imagination with technology to craft innovative solutions. As a forward-thinking digital agency, we bring visionary concepts to life, delivering exceptional results that shape the future.</p>
                 </div>
                 <div className="cs-btn">
-                  <button ref={buttonRef} className='connect-btn'>Let&apos;s Connect <img src="/assets/img/arrow.svg" alt="" /></button>
+                  <NavLink to='/contact' ref={buttonRef} className='connect-btn text-deco-none'>Let&apos;s Connect <img src="/assets/img/arrow.svg" alt="" /></NavLink>
                 </div>
               </div>
             </div>

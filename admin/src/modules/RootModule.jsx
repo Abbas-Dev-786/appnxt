@@ -23,45 +23,46 @@ const RootModule = () => {
   useEffect(() => {
     if(!localStorage.getItem('ddlj')) {
       navigate('/signin')
+      return;
     }
 
-    // Function to fetch all initial data
-    const fetchInitialData = async () => {
+    // Individual fetch functions with error handling
+    const fetchAndDispatchData = async (fetchFn, dispatchFn) => {
       try {
-        // Fetch all data in parallel using Promise.all
-        const [
-          sliderRes,
-          workProcessRes,
-          projectsRes,
-          servicesRes,
-          homeRes,
-          counterRes,
-          whatWeDoRes
-        ] = await Promise.all([
-          fetchSlider(),
-          fetchWorkProcess(),
-          fetchProjects(),
-          fetchServices(),
-          fetchHome(),
-          fetchCounter(),
-          fetchWhatWeDo()
-        ]);
-
-        // Dispatch all successful responses
-        if (sliderRes?.success) dispatch(sliderRedux(sliderRes.data));
-        if (workProcessRes?.success) dispatch(workProcessRedux(workProcessRes.data));
-        if (projectsRes?.success) dispatch(projectRedux(projectsRes.data));
-        if (servicesRes?.success) dispatch(serviceRedux(servicesRes.data));
-        if (homeRes?.success) dispatch(handlePostBanner(homeRes.data));
-        if (counterRes?.success) dispatch(handlePostCounter(counterRes.data));
-        if (whatWeDoRes?.success) dispatch(handlePostWhatWeDo(whatWeDoRes.data));
-
+        const response = await fetchFn();
+        if (response?.data) {
+          dispatch(dispatchFn(response.data));
+        }
       } catch (error) {
-        console.error('Error fetching initial data:', error);
+        console.error(`Error fetching data:`, error);
       }
     };
 
-    fetchInitialData();
+    // Fetch all data independently
+    const fetchAllData = () => {
+      // Slider data
+      fetchAndDispatchData(fetchSlider, sliderRedux);
+
+      // Work process data
+      fetchAndDispatchData(fetchWorkProcess, workProcessRedux);
+
+      // Projects data
+      fetchAndDispatchData(fetchProjects, projectRedux);
+
+      // Services data
+      fetchAndDispatchData(fetchServices, serviceRedux);
+
+      // Home banner data
+      fetchAndDispatchData(fetchHome, handlePostBanner);
+
+      // Counter data
+      fetchAndDispatchData(fetchCounter, handlePostCounter);
+
+      // What we do data
+      fetchAndDispatchData(fetchWhatWeDo, handlePostWhatWeDo);
+    };
+
+    fetchAllData();
   }, [dispatch, navigate]);
 
   return (

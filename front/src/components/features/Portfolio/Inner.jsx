@@ -6,6 +6,7 @@ import HeadingStart from "../../shared/HeadingStyles/HeadingStart";
 import Content from '../../shared/Content/Content'
 import Projects from "../../shared/Projects/Projects";
 import Advertise from "./Helpers/Advertise";
+import { useScrollToTop } from "../../../util/scrollHook";
 
 const Inner = () => {
     const { project } = useParams();
@@ -17,6 +18,8 @@ const Inner = () => {
         highlightSize: window.innerWidth >= 767 ? 88 : 55,
         width: window.innerWidth >= 767 ? 50 : 100
     }
+
+    useScrollToTop()
 
     return (
         <>

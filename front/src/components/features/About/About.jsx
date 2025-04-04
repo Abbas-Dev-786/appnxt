@@ -6,9 +6,11 @@ import Info from './Helpers/Information/Info'
 import StackCard from './Helpers/Stack-Card/StackCard'
 import Banner from '../../shared/Banner/Banner'
 import Slider from './Helpers/Stack-Card/Slider'
+import { useScrollToTop } from '../../../util/scrollHook'
 
 
 const About = () => {
+  useScrollToTop()
   return (
     <>
         <Header />

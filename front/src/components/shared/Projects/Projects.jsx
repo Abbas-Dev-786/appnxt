@@ -32,7 +32,7 @@ const Cards = ({ image, label, project, index }) => {
     }, [index]);
 
     return (
-        <NavLink to={`/portfolio/${project}`} className="cards" ref={cardRef}>
+        <NavLink to={`/projects/${project}`} className="cards" ref={cardRef}>
             <div>
                 <img src={image} alt={`${label} - ${project}`} />
             </div>

@@ -12,9 +12,9 @@ const Header = () => {
         setDropdownVisible(!isDropdownVisible);
     };
 
-    useEffect(() => {
-        console.log(isDropdownVisible)
-    },[isDropdownVisible])
+    // useEffect(() => {
+    //     console.log(isDropdownVisible)
+    // },[isDropdownVisible])
 
     const services = {
         webAppDev : [
@@ -208,6 +208,7 @@ const Header = () => {
                                     <div id='dropdown-menu' className="dropdown-menu">
                                         <div className="part1">
                                             <ul>
+                                                <li className='opacity-5 cs'>Main category</li>
                                                 <li onMouseEnter={()=>setServiceLinks('webAppDev')} onClick={()=>setServiceLinks('webAppDev')}><h4>Web App <span>Development</span></h4></li>
                                                 <li onMouseEnter={()=>setServiceLinks('enterpriseMessaging')} onClick={()=>setServiceLinks('enterpriseMessaging')}><h4>Enterprise <span>Messaging </span></h4></li>
                                                 <li onMouseEnter={()=>setServiceLinks('smartCards')} onClick={()=>setServiceLinks('smartCards')}><h4>Smart  <span>Cards</span></h4></li>
@@ -228,7 +229,7 @@ const Header = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    <NavLink to='/portfolio'>Projects</NavLink>
+                                    <NavLink to='/projects'>Projects</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to='/digital-banking-solutions'>Digital Banking Solutions</NavLink>
@@ -298,9 +299,11 @@ const Header = () => {
                                 </div>
                             )}
                         </div>
-                        <NavLink to='/portfolio'>Projects</NavLink>
-                        <NavLink to='/'>Awards</NavLink>
-                        <NavLink to='/'>Members</NavLink>
+                        <NavLink to='/projects'>Projects</NavLink>
+                        <NavLink to='/digital-banking-solutions'>Digital Banking Solutions</NavLink>
+                        <NavLink to='/cyber-security'>Cyber Security</NavLink>
+                        {/* <NavLink to='/'>Awards</NavLink>
+                        <NavLink to='/'>Members</NavLink> */}
                         <NavLink to='/contact'>Contact Us</NavLink>
                     </div>
                     <div className="footer">
