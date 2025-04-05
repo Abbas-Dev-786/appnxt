@@ -1063,7 +1063,10 @@ html {
         }
     }
 }
-
+.footer-name-text {
+    position: relative;
+    left: 15px;
+}
 .fs-16 {
     font-size: 16px !important;
 }
