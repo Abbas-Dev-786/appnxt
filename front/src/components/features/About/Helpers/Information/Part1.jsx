@@ -14,7 +14,7 @@ const Part1 = () => {
                     </div>
                 </div>
             <div className="image">
-                <img src="/assets/img/info-img-1.svg" alt="" />
+                <img src="/assets/img/info-img-1.png" alt="" />
             </div>
         </div>
     </>

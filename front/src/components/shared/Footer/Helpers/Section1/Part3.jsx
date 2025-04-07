@@ -9,20 +9,16 @@ const Part3 = ({mobile}) => {
                     COMPANY
                 </h4>
                 <div className="list">
-                    <a className='font-sm text-end fs-16' href='https://www.instagram.com/appnxt.in'>
+                    <a className='font-sm text-end fs-16' href='https://www.instagram.com/appnxt.in' target="_blank">
                         {!mobile && <img src="/assets/img/arrow.svg" alt="" />} &nbsp; INSTAGRAM &nbsp;
                         {mobile && <img src="/assets/img/arrow.svg" alt="" />}
                     </a>
-                    <a className='font-sm text-end fs-16' href='https://x.com/Appnxt_'>
+                    <a className='font-sm text-end fs-16' href='https://in.pinterest.com/appnxt_' target="_blank">
+                        {!mobile && <img src="/assets/img/arrow.svg" alt="" />} &nbsp; PINTEREST &nbsp;
+                        {mobile && <img src="/assets/img/arrow.svg" alt="" />}
+                    </a>
+                    <a className='font-sm text-end fs-16' href='https://x.com/Appnxt_' target="_blank">
                         {!mobile && <img src="/assets/img/arrow.svg" alt="" />} &nbsp; TWITTER &nbsp;
-                        {mobile && <img src="/assets/img/arrow.svg" alt="" />}
-                    </a>
-                    <a className='font-sm text-end fs-16' href='/'>
-                        {!mobile && <img src="/assets/img/arrow.svg" alt="" />} &nbsp; FACEBOOK &nbsp;
-                        {mobile && <img src="/assets/img/arrow.svg" alt="" />}
-                    </a>
-                    <a className='font-sm text-end fs-16' href='https://in.pinterest.com/appnxt_'>
-                        {!mobile && <img src="/assets/img/arrow.svg" alt="" />} &nbsp; DRIBBBLE &nbsp;
                         {mobile && <img src="/assets/img/arrow.svg" alt="" />}
                     </a>
                 </div>

@@ -14,6 +14,9 @@
         height: 1px;
         width: 10px;
     }
+    .main-banner {
+        min-height: 240px;
+    }
     .main-header .logo {
         width: 70%;
     }
@@ -23,7 +26,7 @@
     }
     .main-banner .blur {
         bottom: 0;
-        width: 90%;
+        width: 100%;
     }
     .font-lg {
         font-size: 40px;

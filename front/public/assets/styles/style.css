@@ -146,7 +146,7 @@ html {
     justify-content: space-between;
     align-items: center;
     left: -200%;
-    /* top: 60px; */
+    top: 50px;
     right: 0;
     margin: 0 auto;
     .part1 {
@@ -383,13 +383,12 @@ html {
 
 .main-banner .blur {
     position: absolute;
-    bottom: -5px;
+    bottom: -120px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     backdrop-filter: blur(5px);
 }
-
 .main-banner {
     .card1 {
         position: absolute;
@@ -397,7 +396,7 @@ html {
         /* height: 25%; */
         border-radius: 10px;
         right: 10%;
-        top: -6%;
+        top: 0%;
     }
     .card2 {
         position: absolute;
@@ -405,14 +404,14 @@ html {
         /* height: 25%; */
         border-radius: 10px;
         left: 10%;
-        top: 10%;
+        top: 20%;
     }
     .card3 {
         position: absolute;
         width: 15%;
         /* height: 25%; */
         border-radius: 10px;
-        bottom: 5%;
+        bottom: 0%;
         right: 20%;
     }
 }
@@ -1164,11 +1163,14 @@ html {
                 line-height: normal;
             }
         }
-        .image img {
-            width: 550px;
-            height: 450px;
-            object-fit: cover;
-            border-radius: 10px;
+        .image {
+            width: 100%;
+            img {
+                width: 100%;
+                max-width: 550px;
+                object-fit: cover;
+                border-radius: 13px;
+            }
         }
     }
     .part2 {
@@ -1457,6 +1459,12 @@ html {
     gap: 10px;
 }
 
+.home-hero-sec {
+    background-image: url("/assets/gif/hero-ban-bg.gif");
+    background-size: calc(100% - 25px) auto;
+    background-position: center;
+    background-repeat: no-repeat !important;
+}
 .contact {
     .card-section {
         display: grid;

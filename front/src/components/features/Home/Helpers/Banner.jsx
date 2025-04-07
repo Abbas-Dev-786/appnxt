@@ -163,17 +163,17 @@ const Banner = () => {
 
   return (
     <>
-    <div className="container">
+    <div className="home-hero-sec container">
         <div className="row">
             <div className="col-md-12">
               <div className="main-banner">
                 {/* <img className='gif' ref={gifRef} src="/assets/gif/banner.gif" alt="" /> */}
-                <img className='blur' src="/assets/img/blur.svg" alt="" />
+                <img className='blur' src="/assets/img/blur.png" alt="" />
                 <img ref={card1Ref} className='card1' src="/assets/img/card1.svg" alt="" />
                 <img ref={card2Ref} className='card2' src="/assets/img/card2.svg" alt="" />
                 <img ref={card3Ref} className='card3' src="/assets/img/card3.svg" alt="" />
                 <div className="heading">
-                  <h4 ref={headingRef} className='font-lg text-start'>Imagination <br />Meets Innovation</h4>
+                  <h4 ref={headingRef} className='font-lg text-start'><span>Imagination</span> <br />Meets Innovation</h4>
                 </div>
               </div>
               <div className="pt-30 content-banner">

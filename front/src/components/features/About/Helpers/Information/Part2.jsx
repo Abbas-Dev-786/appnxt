@@ -14,8 +14,8 @@ const Part2 = () => {
     <>
         <div className="part2">
             <div className="image">
-                <img src="/assets/img/info-img-2.svg" alt="" />
-                <img src="/assets/img/info-img-3.svg" alt="" />
+                <img src="/assets/img/info-img-2.png" alt="" />
+                <img src="/assets/img/info-img-3.png" alt="" />
             </div>
 
             <div>
