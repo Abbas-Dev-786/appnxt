@@ -4,15 +4,15 @@ import Part2 from "./Part2";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import splitTextIntoSpans from '../../../../../util/split';
+import { useSelector } from 'react-redux'
 
 const Section1 = () => {
-  const [currentStep, setCurrentStep] = useState({
-    img: "assets/img/step1.svg",
-    step: "Step 1", 
-    heading: "Research and Content Planning",
-    content:
-      "Progressively foster enterprise-wide systems whereas equity invested web-readiness harness installed base bandwidth.",
-  });
+  
+  const rawData = useSelector(state => state.WorkProcessDataSlice.data)
+  const { description } = rawData
+
+  const [currentStep, setCurrentStep] = useState({});
+  const [data, setData] = useState([]);
 
   const headingRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -62,36 +62,23 @@ const Section1 = () => {
     }
   }, []);
 
-  const data = [
-    {
-      img: "assets/img/step1.svg",
-      step: "Step 1",
-      heading: "Research and Content Planning",
-      content:
-        "Progressively foster enterprise-wide systems whereas equity invested web-readiness harness installed base bandwidth.",
-    },
-    {
-      img: "assets/img/step1.svg", 
-      step: "Step 2",
-      heading: "Design and Development",
-      content:
-        "Continually reintermediate seamless infrastructures with efficient human capital leverage.",
-    },
-    {
-      img: "assets/img/step1.svg",
-      step: "Step 3", 
-      heading: "Testing and Optimization",
-      content:
-        "Completely synergize scalable e-commerce without backward-compatible data.",
-    },
-    {
-      img: "assets/img/step1.svg",
-      step: "Step 4",
-      heading: "Launch and Monitoring", 
-      content:
-        "Dramatically maintain clicks-and-mortar solutions without functional solutions.",
-    },
-  ];
+  useEffect(() => {
+    if (rawData) {
+      const { step1, step2, step3, step4 } = rawData;
+
+      // Add step field to each step object
+      const formattedData = [
+        { ...step1, step: "Step 1" },
+        { ...step2, step: "Step 2" },
+        { ...step3, step: "Step 3" },
+        { ...step4, step: "Step 4" },
+      ];
+
+      setCurrentStep(formattedData[0]); // Set initial step to step1
+      setData(formattedData); // Set data to the formatted array
+    }
+  }, [rawData]);
+
 
   return (
     <>

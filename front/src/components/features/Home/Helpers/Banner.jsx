@@ -3,6 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import splitTextIntoSpans from '../../../../util/split';
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { splitter } from '../../../../util/Splitter';
 
 const Banner = () => {
   const card1Ref = useRef(null);
@@ -12,6 +14,9 @@ const Banner = () => {
   const paragraphRef = useRef(null);
   const gifRef = useRef(null);
   const buttonRef = useRef(null);
+
+  const bannerHeading = useSelector(state => state.AdminDataSlice.homeBanner)
+  const { banner } = bannerHeading
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -173,7 +178,7 @@ const Banner = () => {
                 <img ref={card2Ref} className='card2' src="/assets/img/card2.svg" alt="" />
                 <img ref={card3Ref} className='card3' src="/assets/img/card3.svg" alt="" />
                 <div className="heading">
-                  <h4 ref={headingRef} className='font-lg text-start'><span>Imagination</span> <br />Meets Innovation</h4>
+                  <h4 ref={headingRef} className='font-lg text-start'><span>{splitter(banner, 0, 1)}</span> <br />{splitter(banner, 1)}</h4>
                 </div>
               </div>
               <div className="pt-30 content-banner">

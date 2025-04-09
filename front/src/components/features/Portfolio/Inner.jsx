@@ -7,9 +7,18 @@ import Content from '../../shared/Content/Content'
 import Projects from "../../shared/Projects/Projects";
 import Advertise from "./Helpers/Advertise";
 import { useScrollToTop } from "../../../util/scrollHook";
+import { useSelector } from 'react-redux'
+import { useState } from "react";
+import { useEffect } from "react";
+import { splitter } from "../../../util/Splitter";
 
 const Inner = () => {
     const { project } = useParams();
+
+    const allProjects = useSelector(state => state.ProjectDataSlice.data)
+
+    const [displayProject, setDisplayProject] = useState([])
+    const [displayData, setDisplayData] = useState({})
 
     const projectContent = {
         normal: "More Projects",
@@ -19,23 +28,68 @@ const Inner = () => {
         width: window.innerWidth >= 767 ? 50 : 100
     }
 
+    useEffect(()=>{
+        if(allProjects && allProjects?.length > 0) {
+            const filteredProj = allProjects?.find(proj => proj._id === project)
+            const { banners, content } = filteredProj
+            const combinedArray = [...Array(Math.max(banners.length, content.length))].reduce((acc, _, index) => {
+                if (index < banners.length) {
+                    acc.push({ type: 'banner', data: banners[index] });
+                }
+                if (index < content.length) {
+                    acc.push({ type: 'content', data: content[index] });
+                }
+                return acc;
+            }, []);
+            setDisplayData(combinedArray)
+            // console.log(combinedArray)
+            setDisplayProject(filteredProj)
+        }
+    }, [allProjects])
+
+
     useScrollToTop()
 
     return (
         <>
             <Header />
 
-            <Topic project={project} />
+            <Topic project={displayProject?.name} />
 
             <div className="container mt-4">
                 <div className="row">
                     <div className="col-md-12">
-                        <HeadingStart highlight={'Empowering Rural India'} normal={'with Digital Financial Solutions'} normalSize={window.innerWidth >= 767 ? 78 : 40} highlightSize={window.innerWidth >= 767 ? 88 : 45} width={window.innerWidth >= 767 ? 90 : 100} />
+                        <HeadingStart highlight={splitter(displayProject?.heading, 0, 3)} normal={splitter(displayProject?.heading, 3)} normalSize={window.innerWidth >= 767 ? 78 : 40} highlightSize={window.innerWidth >= 767 ? 88 : 45} width={window.innerWidth >= 767 ? 90 : 100} />
                     </div>
                 </div>
             </div>
 
-            <div className="pt-5">
+            {displayData && displayData?.length > 0 && displayData?.map((item, index) => {
+                if (item.type === 'banner') {
+                    return (
+                    <div className="pt-5" key={index}>
+                        <Advertise 
+                        img={item.data.s3Url} 
+                        bg='244F99' 
+                        padding={0} 
+                        imgHeight={window.innerWidth >= 767 ? 650 : 300} 
+                        objectFit={'cover'} 
+                        />
+                    </div>
+                    );
+                } else if (item.type === 'content') {
+                    return (
+                    <Content 
+                        key={index} 
+                        heading={item.data.head} 
+                        content={item.data.body} 
+                    />
+                    );
+                }
+                return null; // Fallback in case of unexpected type
+            })}
+
+            {/* <div className="pt-5">
                 <Advertise img={'/assets/img/portfolio-img-1.svg'} bg={'244F99'} padding={20} imgHeight={window.innerWidth >= 767 ? 650 : 300} objectFit={'contain'} />
             </div>
 
@@ -55,7 +109,7 @@ const Inner = () => {
             
             <div className="pt-cs">
                 <Advertise img={'/assets/img/portfolio-img-4.svg'} bg={'DD2928'} padding={15} imgHeight={window.innerWidth >= 767 ? 380 : 115} objectFit={window.innerWidth >= 767 ? 'contain' : 'cover'} />
-            </div>
+            </div> */}
 
             <Projects type={'start'} content={projectContent} />
 

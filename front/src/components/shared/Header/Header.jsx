@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { splitter } from '../../../util/Splitter';
 
 const Header = () => {
 
+    const serviceCategory = useSelector(state => state.ServiceDataSlice.category)
+    const services = useSelector(state => state.ServiceDataSlice.data)
+
     const [isScrolling, setIsScrolling] = useState(false);
-    const [serviceLinks, setServiceLinks] = useState('webAppDev');
+    const [serviceLinks, setServiceLinks] = useState([]);
     const [isDropdownVisible, setDropdownVisible] = useState(false);
 
     const toggleServiceDropdown = () => {
@@ -16,150 +21,12 @@ const Header = () => {
     //     console.log(isDropdownVisible)
     // },[isDropdownVisible])
 
-    const services = {
-        webAppDev : [
-            {
-                name: 'PHP Development',
-                link: '/php-development'
-            },
-            {
-                name: 'Laravel Developrnent',
-                link: '/laravel-development'
-            },
-            {
-                name: 'Java Development',
-                link: '/java-development'
-            },
-            {
-                name: 'Python Development',
-                link: '/python-development'
-            },
-            {
-                name: 'Angular Development',
-                link: '/angular-development'
-            },
-            {
-                name: 'Vue Js Development',
-                link: '/vue-development'
-            },
-            {
-                name: 'Node Js Development',
-                link: '/node-development'
-            },
-            {
-                name: 'React Js Development',
-                link: '/react-development'
-            },
-        ],
-        enterpriseMessaging : [
-            {
-                name: 'A2P Messaging',
-                link: '/a2p-messaging'
-            },
-            {
-                name: '2 Way Messaging',
-                link: '/2-way-messaging'
-            },
-            {
-                name: 'RCS Business Messaging',
-                link: '/rcs-business-messaging'
-            },
-            {
-                name: 'Whatsapp Business Platform',
-                link: '/whatsapp-business-platform'
-            },
-            {
-                name: 'Google Business Messages',
-                link: '/google-business-messages'
-            },
-            {
-                name: 'Verified Messages',
-                link: '/verified-messages'
-            },
-            {
-                name: 'Truecaller Verified Business Identity',
-                link: '/truecaller-verified-business-identity'
-            },
-            {
-                name: 'Solutions',
-                link: '/solutions'
-            },
-            {
-                name: 'VoiceEX - A suite of Cloud Telephony Solutions',
-                link: '/voiceex-cloud-telephony'
-            }
-        ],
-        smartCards : [
-            {
-                name: 'Markets',
-                link: '/markets'
-            },
-            {
-                name: 'Data',
-                link: '/data'
-            },
-            {
-                name: 'Products',
-                link: '/products'
-            },
-            {
-                name: 'Personalization',
-                link: '/personalization'
-            },
-            {
-                name: 'Digital',
-                link: '/digital'
-            },
-            {
-                name: 'CMS',
-                link: '/cms'
-            }
-        ],
-        mobileAppDev : [
-            {
-                name: 'Flutter App Development',
-                link: '/mob-app-development'
-            },
-            {
-                name: 'Android App Development',
-                link: '/mob-app-development'
-            },
-            {
-                name: 'IOS App Development',
-                link: '/mob-app-development'
-            },
-            {
-                name: 'React Native App Development',
-                link: '/mob-app-development'
-            },
-        ],
-        brandingAndMarketing : [
-            {
-                name: 'Brand Identity',
-                link: '/brand-identity'
-            },
-            {
-                name: 'SMM - Social Media Marketing',
-                link: '/smm-social-media-marketing'
-            },
-            {
-                name: 'SEO',
-                link: '/seo'
-            },
-            {
-                name: 'Meta Ads',
-                link: '/meta-ads'
-            },
-            {
-                name: 'Google Ads',
-                link: '/google-ads'
-            },
-            {
-                name: 'UI/UX',
-                link: '/ui-ux'
-            }
-        ],
+    const toggleServiceLinks = (category) => {
+        // console.log(category)
+        setServiceLinks(services?.filter(value => value.link.category === category))
     }
+
+    useEffect(()=>{console.log(serviceLinks)}, [serviceLinks])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -169,6 +36,7 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
 
     const headerStyle = isScrolling
         ? { backgroundColor: "#000", transition: "background-color 0.10s ease", position: 'sticky', top: 0, zIndex: 999999999999 }
@@ -209,19 +77,25 @@ const Header = () => {
                                         <div className="part1">
                                             <ul>
                                                 <li className='opacity-5 cs'>Main category</li>
-                                                <li onMouseEnter={()=>setServiceLinks('webAppDev')} onClick={()=>setServiceLinks('webAppDev')}><h4>Web App <span>Development</span></h4></li>
-                                                <li onMouseEnter={()=>setServiceLinks('enterpriseMessaging')} onClick={()=>setServiceLinks('enterpriseMessaging')}><h4>Enterprise <span>Messaging </span></h4></li>
-                                                <li onMouseEnter={()=>setServiceLinks('smartCards')} onClick={()=>setServiceLinks('smartCards')}><h4>Smart  <span>Cards</span></h4></li>
-                                                <li onMouseEnter={()=>setServiceLinks('mobileAppDev')} onClick={()=>setServiceLinks('mobileAppDev')}><h4>Mobile App <span>Development</span></h4></li>
-                                                <li onMouseEnter={()=>setServiceLinks('brandingAndMarketing')} onClick={()=>setServiceLinks('brandingAndMarketing')}><h4>Branding and Marketing <span>Solutions</span></h4></li>
+                                                {
+                                                    serviceCategory?.map((value, index) => {
+                                                        const heading = value; // e.g., "Full Stack Development"
+                                                        const lastWordIndex = heading.split(" ").length - 1; // Get the index of the last word
+                                                        const lastWord = splitter(heading, lastWordIndex, lastWordIndex + 1); // Extract the last word
+                                                        const mainHeading = splitter(heading, 0, lastWordIndex);
+                                                        return (
+                                                            <li key={index} onMouseEnter={()=>toggleServiceLinks(value)} onClick={()=>toggleServiceLinks(value)}><h4>{mainHeading} <span>{lastWord}</span></h4></li>
+                                                        )
+                                                    })
+                                                }
                                             </ul>
                                         </div>
                                         <div className="part2">
                                             <ul>
                                                 <li className='opacity-5'>Browse by category</li>
                                                 {
-                                                    services?.[serviceLinks]?.map((item, index) => (
-                                                        <li key={index}><NavLink to={item.link}>{item.name}</NavLink></li>
+                                                    Array.isArray(serviceLinks) && serviceLinks.length > 0 && serviceLinks.map((item, index) => (
+                                                        <li key={index}><NavLink to={`/service/${item._id}`}>{item.heading}</NavLink></li>
                                                     ))
                                                 }
                                             </ul>

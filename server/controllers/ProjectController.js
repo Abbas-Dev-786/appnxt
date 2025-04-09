@@ -28,6 +28,7 @@ const storage = multerS3({
 // Multer instance for handling file uploads
 const upload = multer({
     storage: storage,
+    limits: { fileSize: 10 * 1024 * 1024 }, // Set file size limit to 10 MB
     fileFilter: (req, file, cb) => {
         cb(null, true);
     }

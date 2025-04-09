@@ -1,5 +1,6 @@
+import { splitter } from "../../../../../util/Splitter"
 
-const Header = () => {
+const Header = ({ heading, description }) => {
   return (
     <> 
         <div className="header">
@@ -9,9 +10,9 @@ const Header = () => {
                 </div>
                 <div>
                     <h4 className="font-lg text-start">
-                        <span>Our PHP</span> Development Services
+                        <span>{splitter(heading, 0, 2)}</span> {splitter(heading, 2)}
                     </h4>
-                    <p className="font-sm text-start">We engineer custom, cost-effective software, optimizing information management to deliver unique, high-quality, enterprise-specific, and practical solutions.</p>
+                    <p className="font-sm text-start">{description}</p>
                 </div>
             </div>
             <div className="arrow-button">

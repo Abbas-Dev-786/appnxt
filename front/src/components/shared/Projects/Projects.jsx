@@ -5,9 +5,11 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import splitTextIntoSpans from "../../../util/split";
+import { useSelector } from 'react-redux'
 
-const Cards = ({ image, label, project, index }) => {
+const Cards = ({ image, label, project, index, id }) => {
     const cardRef = useRef(null);
+
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -32,7 +34,7 @@ const Cards = ({ image, label, project, index }) => {
     }, [index]);
 
     return (
-        <NavLink to={`/projects/${project}`} className="cards" ref={cardRef}>
+        <NavLink to={`/projects/${id}`} className="cards" ref={cardRef}>
             <div>
                 <img src={image} alt={`${label} - ${project}`} />
             </div>
@@ -47,6 +49,9 @@ const Cards = ({ image, label, project, index }) => {
 const Projects = ({ content, type }) => {
     const headingRef = useRef(null);
     const descriptionRef = useRef(null);
+
+    const projects = useSelector(state => state.ProjectDataSlice.data)
+
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -138,13 +143,14 @@ const Projects = ({ content, type }) => {
                             }
                         </div>
                         <div className="featured-cards-layout">
-                            {cardData.map((value, index) => (
+                            {projects?.map((value, index) => (
                                 <Cards
-                                key={index}
-                                label={value.label}
-                                image={value.image}
-                                project={value.project}
-                                index={index}
+                                    key={index}
+                                    label={value.type}
+                                    image={value.mainBanner?.s3Url}
+                                    project={value.name}
+                                    index={index}
+                                    id={value?._id}
                                 />
                             ))}
                         </div>

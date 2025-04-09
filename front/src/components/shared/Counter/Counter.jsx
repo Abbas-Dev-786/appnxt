@@ -7,7 +7,6 @@ const Counter = ({ counters }) => {
     const [isVisible, setIsVisible] = useState(false); 
     const countersRef = useRef(null);
 
-    
 
     const [animatedValues, setAnimatedValues] = useState(
         counters?.map(() => 0) 

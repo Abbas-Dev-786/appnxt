@@ -40,8 +40,8 @@ const Part1 = ({ stepSelection }) => {
                     transition={{ duration: 0.3 }}
                 >
                     <motion.img 
-                        src={stepSelection?.img} 
-                        alt={stepSelection?.heading}
+                        src={stepSelection?.banner?.url} 
+                        alt={stepSelection?.head}
                         // whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.3 }}
                     />
@@ -58,8 +58,8 @@ const Part1 = ({ stepSelection }) => {
                     transition={{ duration: 0.3 }}
                 >
                     <motion.h2>{stepSelection?.step}</motion.h2>
-                    <motion.h4>{stepSelection?.heading}</motion.h4>
-                    <motion.p className="font-sm">{stepSelection?.content}</motion.p>
+                    <motion.h4>{stepSelection?.head}</motion.h4>
+                    <motion.p className="font-sm">{stepSelection?.body}</motion.p>
                 </motion.div>
             </AnimatePresence>
         </motion.div>

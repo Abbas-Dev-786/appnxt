@@ -1,19 +1,22 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import splitTextIntoSpans from '../../../../util/split';
+import { useSelector } from 'react-redux'
+import { splitter } from '../../../../util/Splitter';
 
 const Work = () => {
   const headingRef = useRef(null);
   const contentRef = useRef(null);
   const videoRef = useRef(null);
 
+  const data = useSelector(state => state.AdminDataSlice.whatWeDo)
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Heading animation
     if (headingRef.current) {
-    //   splitTextIntoSpans(headingRef.current);
+    //   splitter(headingRef.current);
       
       gsap.fromTo(headingRef.current, {
         opacity: 0,
@@ -79,22 +82,21 @@ const Work = () => {
                         </h4>
                         <div className='body'>
                             <div className="content" ref={contentRef}>
-                                <div className="data-stack">
-                                    <h4>Full Stack <span>Development</span></h4>
-                                    <p className='font-sm'>Full Stack Development offering a plethora of custom web development solutions by experienced website development company with out-of-box approach.</p>
-                                </div>
-                                <div className="data-stack">
-                                    <h4>Mobile Application <span>Development</span></h4>
-                                    <p className='font-sm'>Best in class, well-structured iOS, and Android App Development backed with cutting-edge technology embellishing Modern Technology UX.</p>
-                                </div>
-                                <div className="data-stack">
-                                    <h4>Digital Banking <span>Solution</span></h4>
-                                    <p className='font-sm'>A digital banking solution refers to a comprehensive platform or system that enables financial institutions to provide banking services through digital channels such as mobile apps, web applications, and APIs.</p>
-                                </div>
-                                <div className="data-stack">
-                                    <h4>Web App <span>Designing</span></h4>
-                                    <p className='font-sm'>Our web & app development and designing services ensure high product functionality & design that allows much easier User Experience.</p>
-                                </div>
+                              {
+                                data?.map((value, index) => {
+                                  const heading = value.head; // e.g., "Full Stack Development"
+                                  const lastWordIndex = heading.split(" ").length - 1; // Get the index of the last word
+                                  const lastWord = splitter(heading, lastWordIndex, lastWordIndex + 1); // Extract the last word
+                                  const mainHeading = splitter(heading, 0, lastWordIndex); // Extract the rest of the heading
+
+                                  return (
+                                    <div className="data-stack">
+                                        <h4>{mainHeading} <span>{lastWord}</span></h4>
+                                        <p className='font-sm'>{value.body}</p>
+                                    </div>
+                                  )
+                                })
+                              }
                             </div>
                             <div className="image">
                                 <video ref={videoRef} autoPlay loop muted src="/assets/gif/work-img.mp4"></video>

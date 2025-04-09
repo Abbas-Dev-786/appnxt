@@ -18,7 +18,7 @@ const rootRoutes = [
         element : <About />
     },
     {
-        path : 'php-development',
+        path : 'service/:id',
         element : <Service />
     },
     {

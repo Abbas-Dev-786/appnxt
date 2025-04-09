@@ -391,6 +391,7 @@ html {
     width: 100%;
     backdrop-filter: blur(5px);
 }
+
 .main-banner {
     .card1 {
         position: absolute;
@@ -1065,10 +1066,12 @@ html {
         }
     }
 }
+
 .footer-name-text {
     position: relative;
     left: 15px;
 }
+
 .fs-16 {
     font-size: 16px !important;
 }
@@ -1474,6 +1477,7 @@ html {
     background-position: center;
     background-repeat: no-repeat !important;
 }
+
 .contact {
     .card-section {
         display: grid;
@@ -1677,7 +1681,7 @@ html {
         }
         .content {
             display: flex;
-            justify-content: space-between;
+            justify-content: start;
             gap: 15px;
             align-items: stretch;
             width: 50%;
