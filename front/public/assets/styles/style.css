@@ -18,13 +18,13 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
     position: sticky;
     top: 0;
 }
 
 .main-header .logo {
     width: 100%;
+    padding: 20px 0;
 }
 
 .main-header .menu-btn {
@@ -109,11 +109,13 @@ html {
     display: flex;
     gap: 25px;
     min-width: 50%;
+    height: 89px;
     align-items: center;
     justify-content: space-between;
     list-style: none;
     padding: 0;
     margin: 0;
+    background-color: #000;
     li a {
         color: #BDBDBD;
         text-decoration: none !important;
@@ -145,8 +147,8 @@ html {
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     align-items: center;
-    left: -200%;
-    top: 50px;
+    left: -180%;
+    top: 57px;
     right: 0;
     margin: 0 auto;
     .part1 {
@@ -780,13 +782,13 @@ html {
         .body {
             padding: 50px 0;
             display: flex;
-            align-items: center;
+            align-items: start;
             justify-content: center;
-            gap: 40px;
+            gap: 35px;
             .part1 {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 30px;
                 justify-content: center;
                 align-items: start;
                 width: 50%;
@@ -794,7 +796,7 @@ html {
             .part2 {
                 display: flex;
                 flex-direction: column;
-                gap: 40px;
+                gap: 25px;
                 justify-content: center;
                 align-items: start;
                 width: 50%;
@@ -807,10 +809,11 @@ html {
                     align-items: center;
                     gap: 30px;
                     img {
-                        height: 200px;
+                        height: auto;
                         width: 200px;
+                        aspect-ratio: 1;
                         object-fit: cover;
-                        border-radius: 10px;
+                        border-radius: 16px;
                     }
                 }
                 .data-stack {
@@ -847,7 +850,7 @@ html {
                 img {
                     width: 100%;
                     object-fit: cover;
-                    border-radius: 10px;
+                    border-radius: 16px;
                 }
             }
         }
@@ -1261,6 +1264,12 @@ html {
                 .three {
                     margin-left: -25px;
                 }
+            }
+            .play-btn-cont {
+                display: flex;
+                column-gap: 20px;
+                text-decoration: none;
+                align-items: center;
             }
         }
     }
@@ -1889,7 +1898,7 @@ html {
         justify-content: center;
         align-items: start;
         padding: 40px;
-        gap: 60px;
+        gap: 30px;
         .heading {
             display: flex;
             flex-direction: column;
@@ -1926,7 +1935,7 @@ html {
         justify-content: center;
         align-items: start;
         padding: 40px;
-        gap: 60px;
+        gap: 40px;
         .heading {
             display: flex;
             flex-direction: column;

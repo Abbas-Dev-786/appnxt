@@ -36,14 +36,16 @@ const Part2 = () => {
                         <img src="/assets/img/profile-img-3.svg" alt="" />
                     </div>
                 </div>
-                <div className="play-btn">
-                    <button>
-                    <img src="/assets/img/play-btn.svg" alt="" />
-                    </button>
-                </div>
-                <h4 className="font-md text-start fs-20">
-                    WATCH INTRO
-                </h4>
+                <a className="play-btn-cont" href="#" target="_blank">
+                    <div className="play-btn">
+                        <button>
+                        <img src="/assets/img/play-btn.svg" alt="" />
+                        </button>
+                    </div>
+                    <h4 className="font-md text-start fs-20">
+                        WATCH INTRO
+                    </h4>
+                </a>
             </div>
         </div>
     </>

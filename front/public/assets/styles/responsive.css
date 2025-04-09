@@ -135,8 +135,8 @@
                             grid-template-columns: 1fr;
                             gap: 5px;
                             img {
-                                height: 100px;
-                                width: 100px;
+                                width: 130px;
+                                max-width: 100%;
                             }
                         }
                     }
@@ -292,8 +292,9 @@
                 }
             }
             .image img {
-                width: 350px;
-                height: 300px;
+                width: 100%;
+                aspect-ratio: 7/6;
+                height: auto;
             }
         }
         .part2 {
@@ -342,6 +343,10 @@
                 padding: 20px;
                 gap: 25px;
             }
+        }
+        .col-md-12 {
+            padding-left: 25px;
+            padding-right: 25px;
         }
     }
     .cs-gap-20 {
