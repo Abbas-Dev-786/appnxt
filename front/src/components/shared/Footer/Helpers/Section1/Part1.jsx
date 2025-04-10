@@ -10,8 +10,7 @@ const Part1 = () => {
                 </h4>
                 <div className="list">
                     <NavLink className='font-sm text-start fs-16' to='/about'><img src="/assets/img/arrow.svg" alt="" /> &nbsp; ABOUT US</NavLink>
-                    <NavLink className='font-sm text-start fs-16' to='/'><img src="/assets/img/arrow.svg" alt="" /> &nbsp; MEMBERS</NavLink>
-                    <NavLink className='font-sm text-start fs-16' to='/'><img src="/assets/img/arrow.svg" alt="" /> &nbsp; STORIES</NavLink>
+                    <NavLink className='font-sm text-start fs-16' to='/'><img src="/assets/img/arrow.svg" alt="" /> &nbsp; HOME</NavLink>
                     <NavLink className='font-sm text-start fs-16' to='/portfolio'><img src="/assets/img/arrow.svg" alt="" /> &nbsp; PROJECTS</NavLink>
                 </div>
             </div>

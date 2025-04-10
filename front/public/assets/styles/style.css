@@ -1009,7 +1009,7 @@ html {
             flex-direction: column;
             justify-content: space-between;
             align-items: start;
-            gap: 50px;
+            gap: 30px;
             .list {
                 display: flex;
                 align-items: start;
@@ -1071,7 +1071,10 @@ html {
     position: relative;
     left: 15px;
 }
-
+.footer-logo-img {
+    width: 100%;
+    pointer-events: none;
+}
 .fs-16 {
     font-size: 16px !important;
 }

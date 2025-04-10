@@ -135,7 +135,7 @@
                             grid-template-columns: 1fr;
                             gap: 5px;
                             img {
-                                width: 130px;
+                                width: 140px;
                                 max-width: 100%;
                             }
                         }

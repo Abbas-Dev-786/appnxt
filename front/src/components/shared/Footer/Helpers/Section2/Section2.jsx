@@ -3,7 +3,7 @@ const Section2 = () => {
   return (
     <>
         <div className="section-2">
-            <h1 className="footer-name-text">APPNXT</h1>
+            <img src="assets/img/footer-logo.png" alt="appnxt" className="footer-logo-img" />
         </div>
     </>
   )

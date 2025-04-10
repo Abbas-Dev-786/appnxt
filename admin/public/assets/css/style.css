@@ -21,7 +21,7 @@
 .sidenav.fixed-start~.main-content {
     margin-left: 0 !important;
     max-width: 100%;
-    overflow-x: clip;
+    overflow-x: auto;
 }
 
 .navbar-vertical.navbar-expand-xs.fixed-start {
