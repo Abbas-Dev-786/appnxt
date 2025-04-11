@@ -95,7 +95,7 @@ const Header = () => {
                                                 <li className='opacity-5'>Browse by category</li>
                                                 {
                                                     Array.isArray(serviceLinks) && serviceLinks.length > 0 && serviceLinks.map((item, index) => (
-                                                        <li key={index}><NavLink to={`/service/${item._id}/${item?.link?.url}`}>{item.heading}</NavLink></li>
+                                                        <li key={index}><NavLink to={`/service/${item?.link?.url}`}>{item.heading}</NavLink></li>
                                                     ))
                                                 }
                                             </ul>

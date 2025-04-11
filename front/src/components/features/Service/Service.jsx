@@ -16,17 +16,17 @@ import { useState } from "react"
 const Service = () => {
 
   const param = useParams()
-  const { id } = param;
+  const { slug } = param;
 
   const services = useSelector(state => state.ServiceDataSlice.data)
 
   const [displayData, setDisplayData] = useState({})
 
   useEffect(()=>{
-    if(services) {
-      setDisplayData(services?.find(value => value._id === id))
+    if(services && slug) {
+      setDisplayData(services?.find(value => value.link?.url === slug))
     }
-  }, [services])
+  }, [services, slug])
 
 
     const content = {

@@ -128,7 +128,7 @@ route.delete('/category/:name', async(req, res) => {
 route.get('/', async(req, res) => {
     try {
         const services = await serviceModel.find();
-        console.log(services)
+        // console.log(services)
         res.status(200).send({ success: true, data: services });
     } catch (error) {
         res.status(500).json({ message: "Error fetching services", error });
@@ -163,6 +163,15 @@ route.post('/', upload, async(req, res) => {
         const parsedLink = typeof link === 'string' ? JSON.parse(link) : link;
         const parsedContent = typeof content === 'string' ? JSON.parse(content) : content;
         const parsedSlider = typeof slider === 'string' ? JSON.parse(slider) : slider;
+
+        // Check if a service with the same link already exists
+        const existingService = await serviceModel.findOne({ 'link.url': parsedLink.url });
+        if (existingService) {
+            return res.status(400).json({ 
+                success: false, 
+                message: "A service with the same link already exists" 
+            });
+        }
 
         // Handle banner upload
         const banner = req.files.find(file => file.fieldname === 'banner') ? {

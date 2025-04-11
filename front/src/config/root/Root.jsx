@@ -18,7 +18,7 @@ const rootRoutes = [
         element : <About />
     },
     {
-        path : 'service/:id/:slug',
+        path : 'service/:slug',
         element : <Service />
     },
     {
