@@ -76,42 +76,42 @@ const OurServices = () => {
 
                         <div className="services-grid mt-5 ">
                             <div className="services-col">
-                                <img src="/assets/img/service-col-1.svg" alt="" />
+                                <img src="/assets/img/service-col-1.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 Web App <br/>
                                 Development
                                 </div>
                             </div>
                             <div className="services-col">
-                                <img src="/assets/img/service-col-2.svg" alt="" />
+                                <img src="/assets/img/service-col-2.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 Staff <br/>
                                 Augmentation
                                 </div>
                             </div>
                             <div className="services-col">
-                                <img src="/assets/img/service-col-3.svg" alt="" />
+                                <img src="/assets/img/service-col-3.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 A1 <br />
                                 Development
                                 </div>
                             </div>
                             <div className="services-col">
-                                <img src="/assets/img/service-col-4.svg" alt="" />
+                                <img src="/assets/img/service-col-4.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 ML <br/>
                                 Development
                                 </div>
                             </div>
                             <div className="services-col">
-                                <img src="/assets/img/service-col-5.svg" alt="" />
+                                <img src="/assets/img/service-col-5.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 Mobile App <br/>
                                 Development
                                 </div>
                             </div>
                             <div className="services-col">
-                                <img src="/assets/img/service-col-6.svg" alt="" />
+                                <img src="/assets/img/service-col-6.png" alt="" />
                                 <div className="pill font-md text-center fs-16">
                                 Quality <br/>
                                 Assurance
