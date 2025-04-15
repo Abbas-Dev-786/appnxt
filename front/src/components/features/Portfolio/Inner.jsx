@@ -70,10 +70,9 @@ const Inner = () => {
                     <div className="pt-5" key={index}>
                         <Advertise 
                         img={item.data.s3Url} 
-                        bg='244F99' 
                         padding={0} 
                         imgHeight={window.innerWidth >= 767 ? 650 : 300} 
-                        objectFit={'cover'} 
+                        objectFit={index === displayData.length - 1 ? 'contain' : 'cover'} 
                         />
                     </div>
                     );

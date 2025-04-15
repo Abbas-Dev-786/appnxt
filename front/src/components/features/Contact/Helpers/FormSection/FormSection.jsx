@@ -32,7 +32,7 @@ const FormSection = () => {
 
     const emailData = {
       sender: { email: "info@appnxt.in" }, // Use your Brevo verified sender email
-      to: [{ email: formData?.email }], // Replace with the recipient's email
+      to: [{ email: "info@appnxt.in" }], // Replace with the recipient's email
       subject: "New Contact Form Submission",
       htmlContent: `
         <h3>New Contact Form Submission</h3>
