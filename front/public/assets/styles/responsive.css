@@ -8,6 +8,18 @@
     .desktop-menu {
         display: none;
     }
+    .cs-section .section-1 .header {
+        width: 100%;
+    }
+    .cs-section .section-1 .body .part2 h2, .cs-section .section-1 .body .part1 h2 {
+        font-size: 22px;
+    }
+    .cs-section .section-1 .body .part2 h4, .cs-section .section-1 .body .part1 h4 {
+        font-size: 28px;
+    }
+    .font-sm {
+        font-size: 16px;
+    }
 }
 @media screen and (max-width: 767px) {
     #root {
