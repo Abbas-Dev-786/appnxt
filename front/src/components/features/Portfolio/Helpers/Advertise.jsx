@@ -4,7 +4,7 @@ const Advertise = ({ bg, img, padding, imgHeight, objectFit }) => {
         <div className="portfolio"
             style={{ backgroundColor: bg ? `#${bg}` : 'transparent', padding: padding !== 0 ? padding : 0 }}
         >
-            <img src={img} style={{ height: `${imgHeight}px`, objectFit: objectFit ? objectFit : 'cover' }} alt="" />
+            <img src={img} style={{ objectFit: objectFit ? objectFit : 'cover' }} alt="" />
         </div>
     </>
   )
