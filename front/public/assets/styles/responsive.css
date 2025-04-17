@@ -11,14 +11,89 @@
     .cs-section .section-1 .header {
         width: 100%;
     }
+    .cs-section .section-1 .body .part1 {
+        width: 55%;
+    }
+    .cs-section .section-1 .body .part2 {
+        width: 45%;
+    }
     .cs-section .section-1 .body .part2 h2, .cs-section .section-1 .body .part1 h2 {
-        font-size: 22px;
+        font-size: 20px;
+    }
+    .cs-section .section-1 .body .part2 .data-stack.view img, .cs-section .section-1 .body .part1 .data-stack.view img {
+        width: 170px;
     }
     .cs-section .section-1 .body .part2 h4, .cs-section .section-1 .body .part1 h4 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+    .cs-section .section-2 .body .part2 .left img {
+        width: 290px;
+        height: 370px;
+    }
+    .cs-section .section-2 .body .part2 .center img {
+        width: 320px;
+        height: 440px;
+    }
+    .cs-section .section-2 .body .part2 .right img {
+        width: 290px;
+        height: 370px;
+    }
+    .cs-section .section-2 .counter .box h4 {
+        font-size: 55px;
+    }
+    .cs-section .section-2 .counter .box p {
+        font-size: 18px;
     }
     .font-sm {
-        font-size: 16px;
+        font-size: 14px;
+    }
+    .font-lg {
+        font-size: 75px;
+    }
+    .font-lg span {
+        font-size: 81px;
+    }
+    .fs-68 {
+        font-size: 58px !important;
+    }
+    .fs-82 {
+        font-size: 70px !important;
+    }
+    .head {
+        width: 100%;
+    }
+    .tech-stack {
+        .head {
+            width: 100%;
+        }
+    }
+    .stack-card {
+        & .card-cs .card-layout.even {
+            grid-template-columns: 2fr 1fr;
+            .content {
+                gap: 30px;
+            }
+        }
+    }
+    .stack-card {
+        & .card-cs .card-layout.odd {
+            grid-template-columns: 1fr 2fr;
+            .content {
+                gap: 30px;
+            }
+        }
+    }
+}
+@media (max-width:1024px) and (min-width:768px){
+    .footer-main {
+        .section-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 2fr 3fr 2fr;
+        }
     }
 }
 @media screen and (max-width: 767px) {
@@ -52,10 +127,10 @@
         width: 100%;
     }
     .font-lg {
-        font-size: 40px;
+        font-size: 36px;
     }
     .font-lg span {
-        font-size: 50px;
+        font-size: 46px;
     }
     .card1 {
         width: 22% !important;
@@ -273,10 +348,10 @@
         font-size: 32px !important;
     }
     .fs-82 {
-        font-size: 50px !important;
+        font-size: 44px !important;
     }
     .fs-68 {
-        font-size: 40px !important;
+        font-size: 36px !important;
     }
     .slider-menu {
         width: 100%;
@@ -362,6 +437,9 @@
                 align-items: start;
                 padding: 20px;
                 gap: 25px;
+                h4 {
+                    text-align: left;
+                }
             }
         }
         .col-md-12 {
