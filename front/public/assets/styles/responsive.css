@@ -98,6 +98,12 @@
             grid-template-columns: 2fr 3fr 2fr;
         }
     }
+    .tech-stack .tech-body .area h4 {
+        font-size: 90px;
+    }
+    .tech-stack .tech-body .area img {
+        height: 80px;
+    }
 }
 @media screen and (max-width: 767px) {
     #root {
@@ -126,7 +132,7 @@
         height: 400px;
     }
     .main-banner .blur {
-        bottom: 0;
+        bottom: -110;
         width: 100%;
     }
     .font-lg {
@@ -153,15 +159,19 @@
     .font-sm {
         font-size: 14px;
     }
+    .pt-30 {
+        padding-top: 30px;
+    }
     .content-banner {
         grid-template-columns: 1fr;
         gap: 10px;
+        padding-top: 140px;
     }
     .content-banner .cs-btn {
         justify-self: start;
     }
-    .pt-30 {
-        padding-top: 30px;
+    .main-banner .heading {
+        bottom: -110px;
     }
     .connect-btn {
         gap: 10px;

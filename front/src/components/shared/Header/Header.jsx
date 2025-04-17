@@ -43,8 +43,8 @@ const Header = () => {
         : { position: 'sticky', top: 0, zIndex: 999999999999 };
 
     const toggleMenu = (open) => {
-        document.getElementById('slider-menu').style.right = `${open ? 0 : -100}%`
-        document.getElementById('root').style.overflowY = `${open ? 'hidden' : 'auto'}`;
+        document.getElementById('slider-menu').style.transform = `translateX(${open ? "0%" : "100%"})`;
+        document.getElementById('root').style.overflowY = `${open ? 'clip' : ''}`;
         document.getElementById('root').style.height = `${open ? '100vh' : 'auto'}`;
 
     }

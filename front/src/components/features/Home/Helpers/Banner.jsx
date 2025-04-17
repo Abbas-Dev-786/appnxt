@@ -8,7 +8,7 @@ import { splitter } from '../../../../util/Splitter';
 
 const Banner = () => {
   const card1Ref = useRef(null);
-  const card2Ref = useRef(null); 
+  const card2Ref = useRef(null);
   const card3Ref = useRef(null);
   const headingRef = useRef(null);
   const paragraphRef = useRef(null);
@@ -142,7 +142,7 @@ const Banner = () => {
 
     const paragraphText = paragraphRef.current;
     splitTextIntoSpans(paragraphText);
-   
+
 
     mainTimeline.to(paragraphRef.current.querySelectorAll('span span span'), {
       opacity: 1,
@@ -168,8 +168,9 @@ const Banner = () => {
 
   return (
     <>
-    <div className="home-hero-sec container">
-        <div className="row">
+      <div className="home-hero-sec">
+        <div className="container">
+          <div className="row">
             <div className="col-md-12">
               <div className="main-banner">
                 {/* <img className='gif' ref={gifRef} src="/assets/gif/banner.gif" alt="" /> */}
@@ -190,8 +191,9 @@ const Banner = () => {
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
     </>
   )
 }

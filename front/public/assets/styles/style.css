@@ -8,7 +8,7 @@ body {
     will-change: transform;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 html {
@@ -250,7 +250,8 @@ html {
     height: 100vh;
     background: linear-gradient(180deg, #0E0E0E 0%, #171717 100%);
     z-index: 999;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
     top: 0;
     position: absolute;
     transition: 0.5s all;
@@ -265,7 +266,11 @@ html {
 .slider-menu .footer {
     width: 100%;
 }
-
+.slider-menu .header,
+.slider-menu .footer {    
+    position: relative;
+    z-index: 5;
+}
 .slider-menu .header {
     display: flex;
     justify-content: space-between;
@@ -669,24 +674,26 @@ html {
    /* justify-content: space-between;
     */
     width: 100%;
-    overflow: hidden;
+    overflow-x: clip;
 }
 .tech-stack .tech-body .area h4 {
     color: #6b6b6b;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 170px;
+    font-size: 165px;
     font-weight: 400;
    /* line-height: normal;
     */
     letter-spacing: -6px;
     line-height: 1em;
     margin: 0;
+    text-align: center;
 }
 .tech-stack .tech-body .area img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
-    height: 160px;
+    height: 135px;
+    margin-top: -12px;
 }
 .tech-stack .tech-body .area .pill {
     display: inline-flex;
