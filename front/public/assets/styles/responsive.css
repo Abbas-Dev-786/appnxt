@@ -1,3 +1,14 @@
+@media (max-width: 1024px) {    
+    .slider-menu .header .text h6 {
+        font-size: 14px !important;
+    }
+    .mobile-menu {
+        display: block;
+    }
+    .desktop-menu {
+        display: none;
+    }
+}
 @media screen and (max-width: 767px) {
     #root {
         overflow-x: hidden;
@@ -257,9 +268,6 @@
     }
     .slider-menu {
         width: 100%;
-    }
-    .slider-menu .header .text h6 {
-        font-size: 14px !important;
     }
     .slider-menu .header .part-1 {
         gap: 20px;

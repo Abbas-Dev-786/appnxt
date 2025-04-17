@@ -26,11 +26,11 @@ const Header = () => {
         setServiceLinks(services?.filter(value => value.link.category === category))
     }
 
-    useEffect(()=>{console.log(serviceLinks)}, [serviceLinks])
+    useEffect(() => { console.log(serviceLinks) }, [serviceLinks])
 
     useEffect(() => {
         const handleScroll = () => {
-        setIsScrolling(window.scrollY > 50);
+            setIsScrolling(window.scrollY > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -40,20 +40,20 @@ const Header = () => {
 
     const headerStyle = isScrolling
         ? { backgroundColor: "#000", transition: "background-color 0.10s ease", position: 'sticky', top: 0, zIndex: 999999999999 }
-        : {position: 'sticky', top: 0, zIndex: 999999999999};
+        : { position: 'sticky', top: 0, zIndex: 999999999999 };
 
-        const toggleMenu = (open) => {
-            document.getElementById('slider-menu').style.right = `${open ? 0 : -100}%`
-            document.getElementById('root').style.overflowY = `${open ? 'hidden' : 'auto'}`;
-            document.getElementById('root').style.height = `${open ? '100vh' : 'auto'}`;
+    const toggleMenu = (open) => {
+        document.getElementById('slider-menu').style.right = `${open ? 0 : -100}%`
+        document.getElementById('root').style.overflowY = `${open ? 'hidden' : 'auto'}`;
+        document.getElementById('root').style.height = `${open ? '100vh' : 'auto'}`;
 
-        }
+    }
 
-        const toggleDropdown = (open) => {
-            document.getElementById('dropdown-menu').style.opacity = `${open ? 1 : 0}`;
-            document.getElementById('dropdown-menu').style.transform = `${open ? 'translateY(0)' : 'translateY(-200%)'}`;
-            !open && setServiceLinks('webAppDev')
-        }
+    const toggleDropdown = (open) => {
+        document.getElementById('dropdown-menu').style.opacity = `${open ? 1 : 0}`;
+        document.getElementById('dropdown-menu').style.transform = `${open ? 'translateY(0)' : 'translateY(-200%)'}`;
+        !open && setServiceLinks('webAppDev')
+    }
 
     return (
         <header style={headerStyle}>
@@ -62,70 +62,67 @@ const Header = () => {
                     <NavLink to='/'>
                         <img className="logo" src="/assets/img/logo.svg" alt="" />
                     </NavLink>
-                    {
-                        window.innerWidth > 767 ? (
-                            <ul className='menu-list'>
-                                <li>
-                                    <NavLink to='/'>Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/about'>About Us</NavLink> 
-                                </li>
-                                <li onMouseEnter={()=>  toggleDropdown(true)} onMouseLeave={()=>toggleDropdown(false)} className="drop-down">
-                                    <NavLink to='/services'>Services &nbsp; <i class="fa-regular fa-angle-down"></i></NavLink>
-                                    <div id='dropdown-menu' className="dropdown-menu">
-                                        <div className="part1">
-                                            <ul>
-                                                <li className='opacity-5 cs'>Main category</li>
-                                                {
-                                                    serviceCategory?.map((value, index) => {
-                                                        const heading = value; // e.g., "Full Stack Development"
-                                                        const lastWordIndex = heading.split(" ").length - 1; // Get the index of the last word
-                                                        const lastWord = splitter(heading, lastWordIndex, lastWordIndex + 1); // Extract the last word
-                                                        const mainHeading = splitter(heading, 0, lastWordIndex);
-                                                        return (
-                                                            <li key={index} onMouseEnter={()=>toggleServiceLinks(value)} onClick={()=>toggleServiceLinks(value)}><h4>{mainHeading} <span>{lastWord}</span></h4></li>
-                                                        )
-                                                    })
-                                                }
-                                            </ul>
-                                        </div>
-                                        <div className="part2">
-                                            <ul>
-                                                <li className='opacity-5'>Browse by category</li>
-                                                {
-                                                    Array.isArray(serviceLinks) && serviceLinks.length > 0 && serviceLinks.map((item, index) => (
-                                                        <li key={index}><NavLink to={`/service/${item?.link?.url}`}>{item.heading}</NavLink></li>
-                                                    ))
-                                                }
-                                            </ul>
-                                        </div>
+                    <div className="desktop-menu">
+                        <ul className='menu-list'>
+                            <li>
+                                <NavLink to='/'>Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/about'>About Us</NavLink>
+                            </li>
+                            <li onMouseEnter={() => toggleDropdown(true)} onMouseLeave={() => toggleDropdown(false)} className="drop-down">
+                                <NavLink to='/services'>Services &nbsp; <i class="fa-regular fa-angle-down"></i></NavLink>
+                                <div id='dropdown-menu' className="dropdown-menu">
+                                    <div className="part1">
+                                        <ul>
+                                            <li className='opacity-5 cs'>Main category</li>
+                                            {
+                                                serviceCategory?.map((value, index) => {
+                                                    const heading = value; // e.g., "Full Stack Development"
+                                                    const lastWordIndex = heading.split(" ").length - 1; // Get the index of the last word
+                                                    const lastWord = splitter(heading, lastWordIndex, lastWordIndex + 1); // Extract the last word
+                                                    const mainHeading = splitter(heading, 0, lastWordIndex);
+                                                    return (
+                                                        <li key={index} onMouseEnter={() => toggleServiceLinks(value)} onClick={() => toggleServiceLinks(value)}><h4>{mainHeading} <span>{lastWord}</span></h4></li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
                                     </div>
-                                </li>
-                                <li>
-                                    <NavLink to='/projects'>Projects</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/digital-banking-solutions'>Digital Banking Solutions</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/cyber-security'>Cyber Security</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/contact' className="connect-btn">Contact Us <img src="/assets/img/arrow.svg" alt="" /></NavLink>
-                                </li>
-                            </ul>
-                        ) : (
-                            <div>
-                                <button id="menubtn" onClick={()=>toggleMenu(true)} className="menu-btn">
-                                    <div className="line-1"></div>
-                                    <div className="line-2"></div>
-                                </button>
-                            </div>
-                        )
-                    }
-                    
-                    
+                                    <div className="part2">
+                                        <ul>
+                                            <li className='opacity-5'>Browse by category</li>
+                                            {
+                                                Array.isArray(serviceLinks) && serviceLinks.length > 0 && serviceLinks.map((item, index) => (
+                                                    <li key={index}><NavLink to={`/service/${item?.link?.url}`}>{item.heading}</NavLink></li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <NavLink to='/projects'>Projects</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/digital-banking-solutions'>Digital Banking Solutions</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/cyber-security'>Cyber Security</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/contact' className="connect-btn">Contact Us <img src="/assets/img/arrow.svg" alt="" /></NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="mobile-menu">
+                        <div>
+                            <button id="menubtn" onClick={() => toggleMenu(true)} className="menu-btn">
+                                <div className="line-1"></div>
+                                <div className="line-2"></div>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div id="slider-menu" className="slider-menu">
                     <div className="header">
