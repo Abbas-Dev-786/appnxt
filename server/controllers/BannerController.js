@@ -52,7 +52,18 @@ route.get("/:pageName", async (req, res) => {
   }
 });
 
-route.get("/:id", async (req, res) => {});
+route.get("/", async (req, res) => {
+  try {
+    const data = await bannerModel.find();
+
+    return res.status(200).send({ success: true, data: data });
+  } catch (error) {
+    console.error("Error fetching banner data:", error);
+    return res
+      .status(500)
+      .send({ success: false, message: "Internal Server Error" });
+  }
+});
 
 route.post("/", upload, async (req, res) => {
   try {
