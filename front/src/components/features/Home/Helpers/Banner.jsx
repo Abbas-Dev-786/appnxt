@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import splitTextIntoSpans from '../../../../util/split';
-import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { splitter } from '../../../../util/Splitter';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import splitTextIntoSpans from "../../../../util/split";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { splitter } from "../../../../util/Splitter";
 
 const Banner = () => {
   const card1Ref = useRef(null);
@@ -15,8 +15,8 @@ const Banner = () => {
   const gifRef = useRef(null);
   const buttonRef = useRef(null);
 
-  const bannerHeading = useSelector(state => state.AdminDataSlice.homeBanner)
-  const { banner } = bannerHeading
+  const bannerHeading = useSelector((state) => state.AdminDataSlice.homeBanner);
+  const { banner, bannerImg } = bannerHeading;
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -33,8 +33,6 @@ const Banner = () => {
     //   opacity: 1
     // });
 
-
-
     // // Pop in animation
     // mainTimeline.to([card1Ref.current, card2Ref.current, card3Ref.current], {
     //   scale: 1,
@@ -47,7 +45,7 @@ const Banner = () => {
     // // Initial positions animation
     // mainTimeline.to(card3Ref.current, {
     //   left: 'unset',
-    //   top: 'unset', 
+    //   top: 'unset',
     //   right: '20%',
     //   bottom: '5%',
     //   xPercent: 0,
@@ -116,17 +114,22 @@ const Banner = () => {
     // });
 
     // Heading animation
-    mainTimeline.fromTo(headingRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power1.out"
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power1.out"
-    }, ">");
+    mainTimeline.fromTo(
+      headingRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power1.out",
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power1.out",
+      },
+      ">"
+    );
 
     // mainTimeline.fromTo(gifRef.current, {
     //   opacity: 0,
@@ -143,51 +146,91 @@ const Banner = () => {
     const paragraphText = paragraphRef.current;
     splitTextIntoSpans(paragraphText);
 
+    mainTimeline.to(
+      paragraphRef.current.querySelectorAll("span span span"),
+      {
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.01,
+        xPercent: 0,
+        ease: "power1.out",
+      },
+      ">"
+    );
 
-    mainTimeline.to(paragraphRef.current.querySelectorAll('span span span'), {
-      opacity: 1,
-      duration: 0.5,
-      stagger: 0.01,
-      xPercent: 0,
-      ease: "power1.out"
-    }, ">");
-
-    mainTimeline.fromTo(buttonRef.current, {
-      opacity: 0,
-      y: 50,
-      duration: 0.5,
-      ease: "power1.out"
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.5,
-      ease: "power1.out"
-    }, ">");
-
+    mainTimeline.fromTo(
+      buttonRef.current,
+      {
+        opacity: 0,
+        y: 50,
+        duration: 0.5,
+        ease: "power1.out",
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power1.out",
+      },
+      ">"
+    );
   }, []);
 
   return (
     <>
-      <div className="home-hero-sec">
+      <div
+        className="home-hero-sec"
+        style={{ backgroundImage: `url("${bannerImg?.s3Url}")` }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-12">
               <div className="main-banner">
                 {/* <img className='gif' ref={gifRef} src="/assets/gif/banner.gif" alt="" /> */}
-                <img className='blur' src="/assets/img/blur.png" alt="" />
-                <img ref={card1Ref} className='card1' src="/assets/img/card1.svg" alt="" />
-                <img ref={card2Ref} className='card2' src="/assets/img/card2.svg" alt="" />
-                <img ref={card3Ref} className='card3' src="/assets/img/card3.svg" alt="" />
+                <img className="blur" src="/assets/img/blur.png" alt="" />
+                <img
+                  ref={card1Ref}
+                  className="card1"
+                  src="/assets/img/card1.svg"
+                  alt=""
+                />
+                <img
+                  ref={card2Ref}
+                  className="card2"
+                  src="/assets/img/card2.svg"
+                  alt=""
+                />
+                <img
+                  ref={card3Ref}
+                  className="card3"
+                  src="/assets/img/card3.svg"
+                  alt=""
+                />
                 <div className="heading">
-                  <h4 ref={headingRef} className='font-lg text-start'><span>{splitter(banner, 0, 1)}</span> <br />{splitter(banner, 1)}</h4>
+                  <h4 ref={headingRef} className="font-lg text-start">
+                    <span>{splitter(banner, 0, 1)}</span> <br />
+                    {splitter(banner, 1)}
+                  </h4>
                 </div>
               </div>
               <div className="pt-30 content-banner">
                 <div>
-                  <p ref={paragraphRef} className='font-sm'>At Appnxt, we merge imagination with technology to craft innovative solutions. As a forward-thinking digital agency, we bring visionary concepts to life, delivering exceptional results that shape the future.</p>
+                  <p ref={paragraphRef} className="font-sm">
+                    At Appnxt, we merge imagination with technology to craft
+                    innovative solutions. As a forward-thinking digital agency,
+                    we bring visionary concepts to life, delivering exceptional
+                    results that shape the future.
+                  </p>
                 </div>
                 <div className="cs-btn">
-                  <NavLink to='/contact' ref={buttonRef} className='connect-btn text-deco-none'>Let&apos;s Connect <img src="/assets/img/arrow.svg" alt="" /></NavLink>
+                  <NavLink
+                    to="/contact"
+                    ref={buttonRef}
+                    className="connect-btn text-deco-none"
+                  >
+                    Let&apos;s Connect{" "}
+                    <img src="/assets/img/arrow.svg" alt="" />
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -195,7 +238,7 @@ const Banner = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Banner
+export default Banner;
