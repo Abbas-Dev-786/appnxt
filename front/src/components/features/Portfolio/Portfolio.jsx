@@ -7,7 +7,6 @@ import Projects from "../../shared/Projects/Projects";
 
 const Portfolio = () => {
   const bannerHeading = useSelector((state) => state.BannerDataSlice);
-  console.log(bannerHeading.data.bannerImg.s3Url);
 
   const projectHeading = {
     highlightSize: window.innerWidth >= 767 ? 88 : 45,
