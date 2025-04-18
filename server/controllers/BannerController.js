@@ -1,5 +1,5 @@
 const route = require("express").Router();
-const homeModel = require("../models/HomeSchema");
+const bannerModel = require("../models/BannerSchema");
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const { s3Client } = require("../utils/aws");
@@ -30,21 +30,20 @@ const upload = multer({
   },
 }).any();
 
-route.get("/", async (req, res) => {
+route.get("/:pageName", async (req, res) => {
   try {
-    const homeData = await homeModel.findOne(
-      {},
-      { banner: 1, bannerImg: 1, _id: 0 }
+    const data = await bannerModel.findOne(
+      { pageName: req.params?.pageName || "service" },
+      { pageName: 1, bannerImg: 1, _id: 0 }
     );
 
-    if (!homeData) {
+    if (!data) {
       return res
         .status(404)
-        .send({ success: false, message: "No banner data found" });
+        .send({ success: false, message: "No  data found" });
     }
-    console.log(homeData);
 
-    return res.status(200).send({ success: true, data: homeData });
+    return res.status(200).send({ success: true, data: data });
   } catch (error) {
     console.error("Error fetching banner data:", error);
     return res
@@ -53,20 +52,31 @@ route.get("/", async (req, res) => {
   }
 });
 
-route.get("/:id", async (req, res) => {});
+route.get("/", async (req, res) => {
+  try {
+    const data = await bannerModel.find();
+
+    return res.status(200).send({ success: true, data: data });
+  } catch (error) {
+    console.error("Error fetching banner data:", error);
+    return res
+      .status(500)
+      .send({ success: false, message: "Internal Server Error" });
+  }
+});
 
 route.post("/", upload, async (req, res) => {
   try {
-    const { banner } = req.body;
+    const { pageName } = req.body;
 
-    if (!banner) {
+    if (!pageName) {
       return res
         .status(400)
         .send({ success: false, message: "Empty Data Not Accepted" });
     }
 
     const data = {
-      banner,
+      pageName,
     };
 
     if (req.files.find((file) => file.fieldname === "bannerImg")) {
@@ -77,7 +87,7 @@ route.post("/", upload, async (req, res) => {
       };
     }
 
-    await homeModel.updateOne({}, { $set: data }, { upsert: true });
+    await bannerModel.updateOne({ pageName }, { $set: data }, { upsert: true });
 
     return res.status(200).send({ success: true });
   } catch (error) {

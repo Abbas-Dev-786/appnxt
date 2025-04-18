@@ -1,15 +1,15 @@
 require("../config/dataBase");
 const mongoose = require("mongoose");
 
-const homeSchema = new mongoose.Schema(
+const bannerSchema = new mongoose.Schema(
   {
-    banner: { type: String, default: "" },
+    pageName: { type: String, default: "" },
     bannerImg: {
       s3Url: { type: String, default: "" },
       s3Key: { type: String, default: "" },
     },
   },
-  { collection: "homeData" }
+  { collection: "Banner" }
 );
 
-module.exports = mongoose.model("homeData", homeSchema);
+module.exports = mongoose.model("banner", bannerSchema);
