@@ -18,7 +18,7 @@ const EditBannerModal = ({ show, onHide, banner, onSuccess }) => {
       setFormData({
         pageName: banner.pageName,
         bannerImage: null,
-        preview: banner.bannerImg?.s3Url || "",
+        preview: banner?.bannerImg?.s3Url || "",
       });
     }
   }, [banner]);

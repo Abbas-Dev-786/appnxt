@@ -59,7 +59,7 @@ const Banners = () => {
                     <tr key={banner._id}>
                       <td>
                         <img
-                          src={banner.bannerImg?.s3Url}
+                          src={banner?.bannerImg?.s3Url}
                           alt={banner.pageName}
                           style={{ width: "100px", height: "auto" }}
                         />

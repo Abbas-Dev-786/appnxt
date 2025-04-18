@@ -23,7 +23,7 @@ const HomeBanner = () => {
       setBannerData((prev) => ({
         ...prev,
         banner: banner.banner,
-        preview: banner.bannerImg.s3Url || "",
+        preview: banner?.bannerImg?.s3Url || "",
       }));
     }
   }, [banner]);
