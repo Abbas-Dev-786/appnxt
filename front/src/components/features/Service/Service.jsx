@@ -17,9 +17,9 @@ const Service = () => {
   const param = useParams();
   const { slug } = param;
 
-  const bannerHeading = useSelector((state) => state.bannerDataSlice.data);
+  const bannerHeading = useSelector((state) => state.bannerDataSlice?.data);
 
-  const services = useSelector((state) => state.ServiceDataSlice.data);
+  const services = useSelector((state) => state.ServiceDataSlice?.data);
 
   const [displayData, setDisplayData] = useState({});
 
